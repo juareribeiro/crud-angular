@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { first, take } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { delay, first } from 'rxjs/operators';
 
 import { Course } from './../models/course';
 
@@ -14,6 +14,6 @@ export class CoursesService {
   constructor(private httpCliente: HttpClient) { }
 
   list() {
-    return this.httpCliente.get<Course[]>(this.API).pipe(first());
+    return this.httpCliente.get<Course[]>(this.API).pipe(delay(2000), first());
   }
 }
