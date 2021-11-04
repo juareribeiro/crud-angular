@@ -1,6 +1,6 @@
 <mat-card>
   <mat-toolbar color="primary"> Cursos disponíveis </mat-toolbar>
-  <div *ngIf="courses.length > 0">
+  <div *ngIf="courses.length > 0 && !isloading">
     <table mat-table [dataSource]="courses" class="mat-elevation-z8">
       <!-- Name Column -->
       <ng-container matColumnDef="name">
@@ -19,6 +19,6 @@
     </table>
   </div>
   <div class="loading-spinner">
-    <mat-spinner *ngIf="courses.length == 0"></mat-spinner>
+    <mat-spinner *ngIf="courses.length == 0 && isloading"></mat-spinner>
   </div>
 </mat-card>
